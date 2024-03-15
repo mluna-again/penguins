@@ -21,6 +21,9 @@ These instructions will get you a copy of the project up and running on your loc
 * [yukon](https://github.com/wizguin/yukon)
 * Docker
 
+### Optional
+* [mycli](https://github.com/dbcli/mycli)
+
 ### Installation
 
 1. Clone this repository.
@@ -59,8 +62,17 @@ $ exit
 $ docker compose up
 ```
 
-### Usage
+### Creating a user
+You can manually insert a user to the database, but in order to make it easier there is the create_user.sh script:
+```sh
+$ ./create_user.sh <user> <password>
+```
+You can see `create_user.sh` details instructions like this:
+```sh
+$ ./create_user.sh # no arguments
+```
 
+### Usage
 * Building the server for production.
 
 ```console

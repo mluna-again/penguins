@@ -10,7 +10,7 @@ Visit the Discord server for more support.
 * [Socket.IO](https://socket.io/)
 * [Sequelize](https://sequelize.org/)
 
-## Local Installation
+## Local Installation (Development setup)
 
 These instructions will get you a copy of the project up and running on your local machine for development purposes.
 
@@ -24,46 +24,39 @@ These instructions will get you a copy of the project up and running on your loc
 
 1. Clone this repository.
 
-```console
-git clone https://github.com/wizguin/yukon-server
+```sh
+$ git clone https://github.com/wizguin/yukon-server
 ```
 
-2. Install node dependencies.
-
-```console
-npm install
+2. Build containers
+```sh
+$ docker compose build
 ```
 
-3. Copy "config_example.json" to a new file called "config.json".
-
-4. Generate a new crypto secret.
-
-```console
-npm run secret-gen
+3. Setup database
+```sh
+$ docker compose up mysql
 ```
 
-5. Import yukon.sql into your MySQL database.
+4. (In other terminal window, wait for previous step to finish) Prepare database schema
+```sh
+$ docker container exec -it <mysql_container_id> bash
+$ mysql -D yukon -h mysql
+mysql> create database yukon;
+mysql> connect yukon;
+mysql> source ./yukon.sql; # if no errors show up, type Ctrl-D to exit
+$ exit
+```
 
-6. Update MySQL database credentials.
-
-```json
-"database": {
-    "host": "localhost",
-    "user": "user",
-    "password": "password",
-    "database": "yukon",
-    "dialect": "mysql",
-    "debug": false
-},
+5. Stop previous compose and restart
+```sh
+# return to previous terminal window and type ctrl-c
+# you should see something like this:
+# [+] Stopping 2/2...
+$ docker compose up
 ```
 
 ### Usage
-
-* Running the dev server.
-
-```console
-npm run dev
-```
 
 * Building the server for production.
 

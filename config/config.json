@@ -5,9 +5,9 @@
         "loginKeyExpiry": 300
     },
     "database": {
-        "host": "localhost",
+        "host": "mysql",
         "user": "root",
-        "password": "password",
+        "password": "",
         "database": "yukon",
         "dialect": "mysql",
         "debug": false,

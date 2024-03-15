@@ -65,7 +65,7 @@ $ docker compose up
 ### Creating a user
 You can manually insert an user to the database, but in order to make it easier there is the create_user.sh script:
 ```sh
-$ ./create_user.sh <user> <password>
+$ ./create_user.sh -u <user> -p <password>
 ```
 You can see `create_user.sh` details instructions like this:
 ```sh

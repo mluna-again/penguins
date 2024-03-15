@@ -19,13 +19,14 @@ These instructions will get you a copy of the project up and running on your loc
 * [A MySQL database](https://www.mysql.com/)
 * [Node.js](https://nodejs.org/en/)
 * [yukon](https://github.com/wizguin/yukon)
+* Docker
 
 ### Installation
 
 1. Clone this repository.
 
 ```sh
-$ git clone https://github.com/wizguin/yukon-server
+$ git clone https://github.com/mluna-again/penguins
 ```
 
 2. Build containers
@@ -40,6 +41,8 @@ $ docker compose up mysql
 
 4. (In other terminal window, wait for previous step to finish) Prepare database schema
 ```sh
+$ docker container ls # get database container ID and copy it, look for something like "server-mysql"
+
 $ docker container exec -it <mysql_container_id> bash
 $ mysql -D yukon -h mysql
 mysql> create database yukon;

@@ -188,14 +188,11 @@ CREATE TABLE `users` (
 --
 -- Triggers `users`
 --
-DELIMITER $$
 CREATE TRIGGER `trigger_users_insert` AFTER INSERT ON `users` FOR EACH ROW BEGIN
     INSERT INTO igloos (userId) VALUES (NEW.id);
     INSERT INTO inventories (userId, itemId) VALUES (NEW.id, NEW.color);
     INSERT INTO postcards (userId, postcardId) VALUES (NEW.id, 125);
-END
-$$
-DELIMITER ;
+END;
 
 -- --------------------------------------------------------
 

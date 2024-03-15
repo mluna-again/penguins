@@ -116,7 +116,7 @@ dist
 .pnp.*
 
 # config
-config.json
+# config.json
 
 # exported json
 utils/json
